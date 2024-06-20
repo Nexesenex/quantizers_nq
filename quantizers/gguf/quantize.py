@@ -13,12 +13,27 @@ from .imatrix import GGUFImatrix
 logger = logging.getLogger(__name__)
 
 class GGUFQuantizer:
+#official llama.cpp quants
     VALID_TYPES = ["Q4_0", "Q4_1", "Q5_0", "Q5_1", "IQ2_XXS", "IQ2_XS",
                    "IQ2_S", "IQ2_M", "IQ1_S", "IQ1_M", "Q2_K", "Q2_K_S",
                    "IQ3_XXS", "IQ3_S", "IQ3_M", "Q3_K", "IQ3_XS", "Q3_K_S",
                    "Q3_K_M", "Q3_K_L", "IQ4_NL", "IQ4_XS", "Q4_K",
                    "Q4_K_S", "Q4_K_M", "Q5_K", "Q5_K_S", "Q5_K_M",
-                   "Q6_K", "Q8_0", "F16", "BF16", "F32", "COPY"]
+                   "Q6_K", "Q8_0", "F16", "BF16", "F32", "COPY",
+#Nexesenex custom quants (currently being worked upon)
+                   "Q2_K_ML", "Q3_K_ML", "Q4_K_ML", "Q5_K_ML", "Q6_K_ML",
+                   "Q8_E6", "Q8_OE8", "Q8_OE16",
+#Nexesenex custom IQ quants (currently being worked upon)                 
+                   "IQ1_XS", "IQ1_FS", "IQ1_PS", "IQ1_NS", "IQ1_MS", "IQ1_ES", "IQ1_SR", "IQ1_MR", "IQ1_LR",
+                   "IQ2_XXR", "IQ2_XSR", "IQ2_SR", "IQ2_MR", "IQ2_LR", "IQ2_BLR",
+                   "IQ3_XSR", "IQ3_SR", "IQ3_MR", "IQ3_LR", "IQ3_BLR",
+                   "IQ4_XSR", "IQ4_SR", "IQ4_MR", "IQ4_LR", "IQ4_BLR",
+                   "IQ5_XSR", "IQ5_SR", "IQ5_MR", "IQ5_LR", "IQ5_BLR",
+#Nexesnex test quants (labels are irrelevant)
+                   "IQ6_XSR", "IQ6_SR", "IQ6_MR", "IQ6_LR", "IQ6_BLR",
+                   "IQ7_XSR", "IQ7_SR", "IQ7_MR", "IQ7_LR", "IQ7_BLR",
+                   "IQ8_XSR", "IQ8_SR", "IQ8_MR", "IQ8_LR", "IQ8_BLR",
+                   "IQ9_XSR", "IQ9_SR", "IQ9_MR", "IQ9_LR", "IQ9_BLR"]
 
 
     def __init__(self, config):
